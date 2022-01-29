@@ -1,0 +1,46 @@
+.container {
+  padding: 0 2rem;
+}
+
+.main {
+  padding: 4rem 0;
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  margin-top: 0;
+  line-height: 1.15;
+  font-size: 4rem;
+  text-align: center;
+}
+
+.options {
+  margin: 20px auto;
+  justify-content: space-around;
+  display: flex;
+  width: 80%;
+  font-size: 2rem;
+}
+
+.options p{
+  cursor: pointer;
+}
+
+.form {
+  padding: 40px;
+  line-height: 1.15;
+  font-size: 1rem;
+  text-align: center;
+  border-radius: 12px;
+  border: solid 1px;
+  margin: 40px auto;
+  width: fit-content;
+}
+
+.formbutton {
+  display: block;
+  margin: 20px auto 0;
+}
+

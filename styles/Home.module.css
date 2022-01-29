@@ -28,6 +28,29 @@
   cursor: pointer;
 }
 
+.tablehead{
+  display: block;
+  justify-content: space-evenly;
+  width: 80%;
+  margin: 10px auto;
+}
+
+.tableitens{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.tableitenstitle{
+  font-weight: 600; 
+  margin-bottom: 10px;  
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.tableitens div, .tableitenstitle div{
+  width: 20%;
+}
+
 .form {
   padding: 40px;
   line-height: 1.15;

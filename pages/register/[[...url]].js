@@ -1,5 +1,6 @@
 import styles from '../../styles/Home.module.css'
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link'
 import { useRouter } from 'next/router';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css'; 
@@ -13,6 +14,7 @@ export default function Home() {
       name: null,
       email: null,
       phone: null,
+      reference: null
     });
 
   const [newUser, setNewUser] = useState(true)
@@ -20,7 +22,10 @@ export default function Home() {
 
   useEffect(() => {    
     if(!router.isReady)return;
-
+    if(router.query.url) {
+      setUser({...user, reference: router.query.url})
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.isReady]);
 
 
@@ -44,7 +49,7 @@ export default function Home() {
         toast.warning('email ja está cadastrado na competição')
       } else {
         // document.location.href = "/produtos/" + text;
-        toast.success(result.success)
+        toast.success('user registered')
         setLinkUrl('http://localhost:5000/register/'+result.success)
         setNewUser(false)
       }
@@ -63,9 +68,10 @@ export default function Home() {
           <a href='/register'>
             Register
           </a>
-          <a href='/register'>
-            End Competition
-          </a>
+          <Link href='/theend'>
+            <a>End Competition</a>
+          </Link>
+
         </div>
       </main>
       <div className={styles.form}>
@@ -93,7 +99,7 @@ export default function Home() {
           Thank You for your register
         </p>
 
-        <p onClick={()=>setLinkUrl('http://localhost:5000/register/'+router.query.id)}>
+        <p >
           Get your special link
         </p>
         <input style={{width: '250px'}} value={linkUrl}/>

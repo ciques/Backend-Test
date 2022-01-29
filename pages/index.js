@@ -1,5 +1,6 @@
 import styles from '../styles/Home.module.css'
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css'; 
 
@@ -53,8 +54,11 @@ export default function Home() {
           <a href='/register'>
             Register
           </a>
-          <a href='/register'>
-            End Competition
+          <Link href='/theend'>
+            <a>End Competition</a>
+          </Link>
+          <a href='/frontend'>
+            Frontend Test
           </a>
         </div>
       </main>

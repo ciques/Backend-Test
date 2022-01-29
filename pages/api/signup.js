@@ -2,13 +2,14 @@ const fs = require('fs');
 const bcrypt = require('bcrypt');
 
 export default async function handler(req, res) {
-    var { name, email, phone } = req.body
+    var { name, email, phone, reference } = req.body
 
     try {
         var specialLink = await bcrypt.hash(email, 5)
     
         specialLink = specialLink.slice(1, 10); //user's special link based on email
-    
+        specialLink = specialLink.replace('/',''); // remove bars to help with linking on frontend
+
         // save new user data on a json file
         fs.readFile('scores.json', 'utf8', function readFileCallback(err, data){
     
@@ -27,9 +28,10 @@ export default async function handler(req, res) {
             }
 
             // se ja existe email retorna que email ja foi cadastrado
-            var error
+            var error = false
             object.users.forEach((element, index, array) => {
                 if(element.email == email){
+                    console.log(element.email, email)
                     error = true;
                     return
                 }
@@ -45,6 +47,16 @@ export default async function handler(req, res) {
             console.log(newUser)
 
             object.users.push(newUser); //add user data
+
+            // if signup had a special link add a point to the referer
+
+            if(reference){
+                object.users.forEach((element, index, array) => {
+                    if(element.specialLink == reference){
+                        element.score++
+                    }
+                })
+            }
 
             var json = JSON.stringify(object); //convert it back to json
 

@@ -65,9 +65,9 @@ export default function Home() {
           Welcome to the Competition
         </h1>
         <div className={styles.options}>
-          <a href='/register'>
-            Register
-          </a>
+          <Link href='/'>
+            <a>Back to index</a>
+          </Link>
           <Link href='/theend'>
             <a>End Competition</a>
           </Link>

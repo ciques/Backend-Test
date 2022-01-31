@@ -31,8 +31,21 @@
 .tablehead{
   display: block;
   justify-content: space-evenly;
-  width: 80%;
+  width: 90%;
   margin: 10px auto;
+}
+
+.tabletitle{
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+  margin: 20px 0;  
+}
+
+.tablesubtitle{
+  text-align: center;
+  font-size: 2rem;
+  margin: 40px 0 100px;
 }
 
 .tableitens{
@@ -49,6 +62,8 @@
 
 .tableitens div, .tableitenstitle div{
   width: 20%;
+  padding: 10px;
+  word-break: break-all;
 }
 
 .form {

@@ -19,7 +19,9 @@ export default function handler(req, res) {
       
       object.users.sort((a, b) => b.score - a.score);
 
-      object.users.length = 10
+      if(object.users.length > 10) {
+        object.users.length = 10
+      }
 
       res.status(200).json({ object })
     }
